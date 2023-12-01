@@ -1,1 +1,1 @@
-{"tasks": [{"title": "Task 1", "description": "Task 1 description", "status": "Completed", "categories": ["Work", "School"]}]}
+{"tasks": [{"title": "Task 1", "description": "Task 1 description", "status": "Completed", "categories": ["Work", "School"]}, {"title": "Task 2", "description": "Task 2 Description", "status": "Pending", "categories": ["Work", "School", "Personal", "Etc"]}, {"title": "Task 3", "description": "Task 3 Description", "status": "Pending", "categories": ["work"]}]}

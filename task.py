@@ -69,33 +69,32 @@ class Task:
 
             # Get All Categories
             for category in object['categories']:
-                categories.append(category)
+                categories.append(category.lower())
 
         # Completion Percentage Formula
         completionPercentage = (completedTask / totalTask) * 100
 
         # Task Total and Completion Statistics
-        print(f"{'-'*130}\nPending Task: {pendingTask}\nCompleted Task: {completedTask}\nTotal Tasks: {totalTask}\nCompletion Percentage: {completionPercentage} %\n{'-'*130}")
+        print(f"{'-'*130}\nPending Task: {pendingTask}\nCompleted Task: {completedTask}\nTotal Tasks: {totalTask}\nCompletion Percentage: {completionPercentage:.2f} %\n{'-'*130}")
 
         # Task Category Statistics
         # Get unique categories
         uniqueCategories = list(set(categories))
-
+        
         for uniqueCategory in uniqueCategories:
             categoryCounter = 0
             pendingCounter = 0
             completedCounter = 0
             for object in taskContent["tasks"]:
-                # Increase Category Counters
-                if object['status'] == 'Pending':
-                    pendingCounter += 1
-                elif object['status'] == 'Completed':
-                    completedCounter += 1
-
                 for categoryItem in object['categories']:
-                    if uniqueCategory == categoryItem:
-
+                    # Increase Category Counters
+                    if uniqueCategory == categoryItem.lower():
                         categoryCounter += 1
+
+                        if object['status'] == 'Pending':
+                            pendingCounter += 1
+                        elif object['status'] == 'Completed':
+                            completedCounter += 1
 
             print(f"Total Task Record for category '{uniqueCategory}': {categoryCounter}\nPending: {pendingCounter}\nCompleted: {completedCounter}\n{'-'*130}")
 
