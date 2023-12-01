@@ -38,17 +38,17 @@ To run the program on your local machine follow these steps.
 ## How To Use
 - Run the task.py
 - Choose either of the following keys to navigate on the app:
-    1. Add Task
+    1 Add Task
         - For Adding task supply the following data:
             - Title
             - Description
             - Category
-    2. View Tasks
-    3. Update Task
+    2 View Tasks
+    3 Update Task
         - Choose the approriate keys to update the data for each task:
             1. Title
             2. Description
             3. Status
             4. Category
-    4. Remove Task
-    5. Exit Program    
+    4 Remove Task
+    5 Exit Program    
