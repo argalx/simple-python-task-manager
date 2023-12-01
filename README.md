@@ -46,9 +46,9 @@ To run the program on your local machine follow these steps.
 2. View Tasks
 3. Update Task
     - Choose the approriate keys to update the data for each task:
-        1. Title
-        2. Description
-        3. Status
-        4. Category
+        1. Title (1)
+        2. Description (2)
+        3. Status (3)
+        4. Category (4)
 4. Remove Task
 5. Exit Program    
