@@ -35,20 +35,20 @@ To run the program on your local machine follow these steps.
 }`
 - Open task.py and update 'fileLocation' variable value to the path on where your JSON file is located
 
-## How To Use
+### How To Use
 - Run the task.py
 - Choose either of the following keys to navigate on the app:
-    1 Add Task
-        - For Adding task supply the following data:
-            - Title
-            - Description
-            - Category
-    2 View Tasks
-    3 Update Task
-        - Choose the approriate keys to update the data for each task:
-            1. Title
-            2. Description
-            3. Status
-            4. Category
-    4 Remove Task
-    5 Exit Program    
+1. Add Task
+    - For Adding task supply the following data:
+        - Title
+        - Description
+        - Category
+2. View Tasks
+3. Update Task
+    - Choose the approriate keys to update the data for each task:
+        1. Title
+        2. Description
+        3. Status
+        4. Category
+4. Remove Task
+5. Exit Program    
