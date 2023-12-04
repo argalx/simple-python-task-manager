@@ -42,7 +42,7 @@ class Task:
 
         return "Task added."
 
-    def readTask(self):
+    def readTask(self, withStatistics=True):
         taskContent = self.loadTask()
 
         # Category list
@@ -74,29 +74,30 @@ class Task:
         # Completion Percentage Formula
         completionPercentage = (completedTask / totalTask) * 100
 
-        # Task Total and Completion Statistics
-        print(f"{'-'*130}\nPending Task: {pendingTask}\nCompleted Task: {completedTask}\nTotal Tasks: {totalTask}\nCompletion Percentage: {completionPercentage:.2f} %\n{'-'*130}")
+        if withStatistics == True:
+            # Task Total and Completion Statistics
+            print(f"{'-'*130}\nPending Task: {pendingTask}\nCompleted Task: {completedTask}\nTotal Tasks: {totalTask}\nCompletion Percentage: {completionPercentage:.2f} %\n{'-'*130}")
 
-        # Task Category Statistics
-        # Get unique categories
-        uniqueCategories = list(set(categories))
-        
-        for uniqueCategory in uniqueCategories:
-            categoryCounter = 0
-            pendingCounter = 0
-            completedCounter = 0
-            for object in taskContent["tasks"]:
-                for categoryItem in object['categories']:
-                    # Increase Category Counters
-                    if uniqueCategory == categoryItem.lower():
-                        categoryCounter += 1
+            # Task Category Statistics
+            # Get unique categories
+            uniqueCategories = list(set(categories))
+            
+            for uniqueCategory in uniqueCategories:
+                categoryCounter = 0
+                pendingCounter = 0
+                completedCounter = 0
+                for object in taskContent["tasks"]:
+                    for categoryItem in object['categories']:
+                        # Increase Category Counters
+                        if uniqueCategory == categoryItem.lower():
+                            categoryCounter += 1
 
-                        if object['status'] == 'Pending':
-                            pendingCounter += 1
-                        elif object['status'] == 'Completed':
-                            completedCounter += 1
+                            if object['status'] == 'Pending':
+                                pendingCounter += 1
+                            elif object['status'] == 'Completed':
+                                completedCounter += 1
 
-            print(f"Total Task Record for category '{uniqueCategory}': {categoryCounter}\nPending: {pendingCounter}\nCompleted: {completedCounter}\n{'-'*130}")
+                print(f"Total Task Record for category '{uniqueCategory}': {categoryCounter}\nPending: {pendingCounter}\nCompleted: {completedCounter}\n{'-'*130}")
 
     def updateTask(self):
         index = self._taskIndex
@@ -271,10 +272,16 @@ while True:
             print(task.updateTask())
 
         # Remove Task
-        elif userInput == 4:    
+        elif userInput == 4:
+            # Initialize Task object for readTask method
+            task = Task()
+
+            # Call readTask method without statistics
+            task.readTask(withStatistics=False)
+
             taskIndexToRemove = int(input("Select Task Index to remove: "))
 
-            # Initialize Task object
+            # Initialize Task object for removeTask method
             task = Task(taskIndex=taskIndexToRemove)
             
             # Call removeTask method from Task object
