@@ -244,7 +244,7 @@ while True:
             while enterCategory == 1:
                 category = input("Enter Task Category: ")
                 categories.append(category)
-                enterCategory = int(input("Enter another category? (1) Yes, (2) No: "))
+                enterCategory = int(input("Enter another category? (1) for Yes, (2) for No: "))
 
             # Initialize Task object
             task = Task(taskTitle=title, taskDecription=description, taskCategories=categories)
@@ -286,10 +286,10 @@ while True:
             break
 
         else:
-            print("Invalid input.")
+            print("Invalid input! The key selection is not part of the specified option.")
 
     except ValueError:
-        print("Invalid input.")
+        print("Invalid input! The key selection is not part of the specified option.")
 
     except Exception as e:
         print(f"Error: {type(e).__name__}, Message: {e.args}")
