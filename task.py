@@ -1,4 +1,9 @@
 from json import load, dump
+from os import system
+from time import sleep
+
+# Clear interpreter variable
+clear = lambda: system('cls')
 
 # JSON file location
 fileLocation = "simple-python-task-manager/json/task.json"
@@ -413,3 +418,9 @@ while True:
 
     except Exception as e:
         print(f"Error: {type(e).__name__}, Message: {e.args}")
+    
+    # Pause for n seconds after printing output
+    sleep(5)
+
+    # Clear screen for windows only
+    clear()
