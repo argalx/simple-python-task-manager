@@ -266,103 +266,136 @@ while True:
             # Initialize Task object for readTask method
             task = Task()
 
+            # Update Task Confirmation Loop Condition
+            updateTaskConfirmation = True
+
+            # Update Task Loop Condition
             updateTask = True
 
-            # Call readTask method without statistics
-            task.readTask(withStatistics=False)
+            # Update Task Confirmation Loop
+            while removeTaskConfirmation == True:
+                try:
+                    # User Confirmation to Remove Task
+                    userConfirmation = int(input("To update tasks press (1) to go back the main menu press (2): "))
 
-            # User Confirmation to Remove Task
-            userConfirmation = int(input("To update tasks press (1) to go back the main menu press (2): "))
+                    if userConfirmation == 1:
+                        # Call readTask method without statistics
+                        task.readTask(withStatistics=False)
 
-            if userConfirmation == 1:
-                # User Initial Update Input
-                taskIndexToUpdate = int(input("Select Task Index to update: "))
+                        # User Initial Update Input
+                        taskIndexToUpdate = int(input("Select Task Index to update: "))
 
-                # Initialize Task Object
-                task = Task(taskIndex=taskIndexToUpdate)
+                        # Initialize Task Object
+                        task = Task(taskIndex=taskIndexToUpdate)
 
-                # Call updateTask method from Task object
-                print(task.updateTask())
+                        # Call updateTask method from Task object
+                        print(task.updateTask())
 
-                # Loop update task
-                while updateTask == True:
-                    try:
-                        # User Confirmation to Update Another Task
-                        userConfirmation = int(input("Would you like to update another task press (1) for 'YES', press (2) to go back to the main menu: "))
+                        # Loop update task
+                        while updateTask == True:
+                            try:
+                                # User Confirmation to Update Another Task
+                                userConfirmation = int(input("Would you like to update another task press (1) for 'YES', press (2) to go back to the main menu: "))
 
-                        if userConfirmation == 1:
-                            # Call readTask method without statistics
-                            task.readTask(withStatistics=False)
-                            
-                            # User Looped Update Input
-                            taskIndexToUpdate = int(input("Select Task Index to update: "))
+                                if userConfirmation == 1:
+                                    # Call readTask method without statistics
+                                    task.readTask(withStatistics=False)
+                                    
+                                    # User Looped Update Input
+                                    taskIndexToUpdate = int(input("Select Task Index to update: "))
 
-                            # Initialize Task Object
-                            task = Task(taskIndex=taskIndexToUpdate)
+                                    # Initialize Task Object
+                                    task = Task(taskIndex=taskIndexToUpdate)
 
-                            # Call updateTask method from Task object
-                            print(task.updateTask())
+                                    # Call updateTask method from Task object
+                                    print(task.updateTask())
 
-                        elif userConfirmation == 2:
-                            updateTask = False
-                        else:
-                            print("Invalid input! The key selection is not part of the specified option.")
-                    except ValueError:
-                        print("The key selection is not an integer and is invalid.")
+                                elif userConfirmation == 2:
+                                    updateTask = False
+                                else:
+                                    print("Invalid input! The key selection is not part of the specified option.")
+                            except ValueError:
+                                print("The key selection is not an integer and is invalid.")
+
+                    elif userConfirmation == 2:
+                        updateTaskConfirmation == False
+
+                    else:
+                        print("Invalid input! The key selection is not part of the specified option.")
+
+                except ValueError:
+                    print("The key selection is not an integer and is invalid.")
+                
+                except ZeroDivisionError:
+                    print("Task is empty.")
 
         # Remove Task
         elif userInput == 4:
             # Initialize Task object for readTask method
             task = Task()
+            
+            # Remove Task Confirmation Loop Condition
+            removeTaskConfirmation = True
 
+            # Remove Task Loop Condition
             removeTask = True
 
-            # Call readTask method without statistics
-            task.readTask(withStatistics=False)
+            # Remove Task Confirmation Loop
+            while removeTaskConfirmation == True:
+                try:
+                    # User Confirmation to Remove Task
+                    userConfirmation = int(input("To remove a task press (1) to go back the main menu press (2): "))
 
-            # User Confirmation to Remove Task
-            userConfirmation = int(input("To remove a task press (1) to go back the main menu press (2): "))
+                    if userConfirmation == 1:
+                        # Call readTask method without statistics
+                        task.readTask(withStatistics=False)
 
-            if userConfirmation == 1:
-                # User Initial Input to Remove Task
-                taskIndexToRemove = int(input("Select Task Index to remove: "))
+                        # User Initial Input to Remove Task
+                        taskIndexToRemove = int(input("Select Task Index to remove: "))
 
-                # Initialize Task object for removeTask method
-                task = Task(taskIndex=taskIndexToRemove)
+                        # Initialize Task object for removeTask method
+                        task = Task(taskIndex=taskIndexToRemove)
+                            
+                        # Call removeTask method from Task object
+                        print(task.removeTask())  
+
+                        # Loop remove task
+                        while removeTask == True:    
+                            try:  
+                                # User Confirmation to Remove Another Task
+                                userConfirmation = int(input("Would you like to remove another task press (1) for 'YES', press (2) to go back to the main menu: "))
+
+                                if userConfirmation == 1:
+                                    # Call readTask method without statistics
+                                    task.readTask(withStatistics=False)
+
+                                    # User Looped Input to Remove Task
+                                    taskIndexToRemove = int(input("Select Task Index to remove: "))
+
+                                    # Initialize Task object for removeTask method
+                                    task = Task(taskIndex=taskIndexToRemove)
+                                        
+                                    # Call removeTask method from Task object
+                                    print(task.removeTask())  
+
+                                elif userConfirmation == 2:
+                                    removeTask = False
+                                else:
+                                    print("Invalid input! The key selection is not part of the specified option.")
+                            except ValueError:
+                                print("The key selection is not an integer and is invalid.")
+
+                    elif userConfirmation == 2:
+                        removeTaskConfirmation = False
                     
-                # Call removeTask method from Task object
-                print(task.removeTask())  
+                    else:
+                        print("Invalid input! The key selection is not part of the specified option.")
+                
+                except ValueError:
+                    print("The key selection is not an integer and is invalid.")
 
-                # Loop remove task
-                while removeTask == True:    
-                    try:  
-                        # User Confirmation to Remove Another Task
-                        userConfirmation = int(input("Would you like to remove another task press (1) for 'YES', press (2) to go back to the main menu: "))
-
-                        if userConfirmation == 1:
-                            # Call readTask method without statistics
-                            task.readTask(withStatistics=False)
-
-                            # User Looped Input to Remove Task
-                            taskIndexToRemove = int(input("Select Task Index to remove: "))
-
-                            # Initialize Task object for removeTask method
-                            task = Task(taskIndex=taskIndexToRemove)
-                                
-                            # Call removeTask method from Task object
-                            print(task.removeTask())  
-
-                        elif userConfirmation == 2:
-                            removeTask = False
-                        else:
-                            print("Invalid input! The key selection is not part of the specified option.")
-                    except ValueError:
-                        print("The key selection is not an integer and is invalid.")
-
-            elif userConfirmation == 2:
-                pass
-            else:
-                print("Invalid input! The key selection is not part of the specified option.")
+                except ZeroDivisionError:
+                    print("Task is empty.")
 
         # Exit Program
         elif userInput == 5:
