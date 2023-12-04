@@ -1,7 +1,7 @@
 from json import load, dump
 
 # JSON file location
-fileLocation = "D:/Documents/GitRepos/simple-python-task-manager/json/task.json"
+fileLocation = "simple-python-task-manager/json/task.json"
 
 # Task Object
 class Task:
