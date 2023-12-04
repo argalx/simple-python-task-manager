@@ -278,7 +278,7 @@ while True:
             updateTask = True
 
             # Update Task Confirmation Loop
-            while removeTaskConfirmation == True:
+            while updateTaskConfirmation == True:
                 try:
                     # User Confirmation to Remove Task
                     userConfirmation = int(input("To update tasks press (1) to go back the main menu press (2): "))
@@ -316,6 +316,8 @@ while True:
                                     print(task.updateTask())
 
                                 elif userConfirmation == 2:
+                                    # End While Loops for Confirmation and Task Update
+                                    updateTaskConfirmation = False
                                     updateTask = False
                                 else:
                                     print("Invalid input! The key selection is not part of the specified option.")
@@ -323,7 +325,7 @@ while True:
                                 print("The key selection is not an integer and is invalid.")
 
                     elif userConfirmation == 2:
-                        updateTaskConfirmation == False
+                        updateTaskConfirmation = False
 
                     else:
                         print("Invalid input! The key selection is not part of the specified option.")
@@ -384,6 +386,8 @@ while True:
                                     print(task.removeTask())  
 
                                 elif userConfirmation == 2:
+                                    # End While Loops for Confirmation and Task Removal
+                                    removeTaskConfirmation = False
                                     removeTask = False
                                 else:
                                     print("Invalid input! The key selection is not part of the specified option.")
